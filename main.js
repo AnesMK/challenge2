@@ -46,7 +46,13 @@ Note: please write one or two lines here describing your solution.
 */
 
 function makeComputer(type, color, weight) {
-  // TODO: Your code here
+// TODO: Your code here
+var computer = {};
+	for (var key in computer){
+		// computer['type'] = type; 
+		// computer['color'] = color; 
+		// computer['weight'] = weight; 
+	return computer;
 }
 
 // Write a function displayComputer that can be used to display one computer.
@@ -67,6 +73,8 @@ You can use toUpperCase method to convert a string to upper case.
 Solve it using the most appropriate helper functions(each,map,filter).
 
 Note: please write one or two lines here describing your solution.
+//My soloution is simply to UpperCase each element inside the array and push it to 
+a new array. map() is used over each() as it has a build in return function.
 
 var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
@@ -74,6 +82,9 @@ uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 
 function uppercaseAll(arrayOfStrings) {
   // TODO: your code here
+  return map (arrayOfStrings, function(element) {
+  	return element.toUpperCase();
+  });
 }
 
 //=============================================================================
@@ -88,6 +99,8 @@ Solve it using one of the most appropriate helperthe helpers functions(each,map,
 
 highestPopulation(data); ==> [{country: "China", population: 1409517397},{country: "India", population: 1339180127}]
 Note: please write one or two lines here describing your solution.
+
+//Using filter() to iterate over and return the array's elements where the value of population is > 500m
 
 Here’s the data you’ll work with:
 */
@@ -113,6 +126,9 @@ var data = [
 
 function highestPopulation(arrayOfObjects) {
   // TODO: your code here
+ 	return filter (arrayOfObjects, function(element) {
+ 		return element.population > 500000000;
+ 	});
 }
 
 //=============================================================================
@@ -129,10 +145,15 @@ var numsArray = [2, 6, 20, 8, 14];
 halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 
 Note: please write one or two lines here describing your solution.
+// The function should divide each element of the array and push it into  a new array,
+map is used to iterate inside the original array and outputs the calculation.
 */
 
 function halveAll(numbers) {
   // your code is here
+  return map(numbers, function(element){
+  	return element / 2;
+  })
 }
 
 //=============================================================================
@@ -146,9 +167,18 @@ Solve it using one of the most appropriate helpers functions(each,map,filter).
 values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129];
 
 Note: please write one or two lines here describing your solution.
+//To output the properties' values of the object, I used each() first to iterate inside the obj
+as the provided map() doesn't work with objects, so I had to declare an empty array to push the
+values into and then return it.
 */
 function values(obj) {
   // TODO: your code here
+ 	var result = [];
+ 	each(obj, function(value, key){
+//console.log(value) ;
+		return result.push(value);
+ 	});
+  return result;
 }
 
 //Good Luck :))
